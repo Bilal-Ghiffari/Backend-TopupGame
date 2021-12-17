@@ -1,0 +1,77 @@
+  <%- include ../../partials/header.ejs %>
+  <%- include ../../partials/navbar.ejs %>
+  <%- include ../../partials/sidebar.ejs %>
+
+  <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+          <div class="container-fluid">
+              <div class="row mb-2">
+                  <div class="col-sm-6">
+                      <h1>Voucher</h1>
+                  </div>
+                  <div class="col-sm-6">
+                      <ol class="breadcrumb float-sm-right">
+                          <li class="breadcrumb-item"><a href="/">Home</a></li>
+                          <li class="breadcrumb-item"><a href="/payment">Kategory</a></li>
+                          <li class="breadcrumb-item active">Tambah</li>
+                      </ol>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <section class="content">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-12">
+                      <div class="card card-primary">
+                          <div class="card-header">
+                              <h3 class="card-title">Form Tambah Payment</h3>
+                          </div>
+                          <!-- /.card-header -->
+                          <!-- form start -->
+                          <form action="/payment/edit/<%= payment._id %>?_method=put" method="post">
+                              <div class="card-body">
+                                  <div class="form-group">
+                                      <label for="type">Type</label>
+                                      <input type="text" class="form-control" id="type" name="type"
+                                          value="<%= payment.type %>" placeholder="masukkan tipe pembayaran" required>
+                                  </div>
+                                  <div class="form-group">
+                                      <label>Bank</label>
+                                      <div class="select2-purple">
+                                          <select name="banks" class="form-control select2" multiple
+                                              data-placeholder="pilih Bank" style="width: 100%;" required>
+                                              <% banks.forEach(item => { %>
+                                              <option value="<%= item._id %>"
+                                                  <% payment.banks.forEach(paymentBank => { %>
+                                                  <% if(item._id.toString() === paymentBank._id.toString()) { %>
+                                                  selected <% } %> <% }) %>>
+                                                  <%= item.name %> -
+                                                  <%= item.nameBank %> -
+                                                  <%= item.noRekening %>
+                                              </option>
+                                              <% }) %>
+                                          </select>
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div class="card-footer">
+                                  <button type="submit" class="btn btn-primary">Simpan</button>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+                  <!-- /.col -->
+              </div>
+              <!-- /.row -->
+          </div>
+          <!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+  </div>
+
+  <%- include ../../partials/footer.ejs %>
+  <%- include ../../partials/js.ejs %>

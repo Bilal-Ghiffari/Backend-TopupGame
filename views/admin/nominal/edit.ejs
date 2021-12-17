@@ -1,0 +1,86 @@
+  <%- include ../../partials/header.ejs %>
+  <%- include ../../partials/navbar.ejs %>
+  <%- include ../../partials/sidebar.ejs %>
+
+  <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+          <div class="container-fluid">
+              <div class="row mb-2">
+                  <div class="col-sm-6">
+                      <h1>Category</h1>
+                  </div>
+                  <div class="col-sm-6">
+                      <ol class="breadcrumb float-sm-right">
+                          <li class="breadcrumb-item"><a href="/">Home</a></li>
+                          <li class="breadcrumb-item"><a href="/nominal">Nominal</a></li>
+                          <li class="breadcrumb-item active">Edit</li>
+                      </ol>
+                  </div>
+              </div>
+          </div><!-- /.container-fluid -->
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-12">
+                      <div class="card card-primary">
+                          <div class="card-header">
+                              <h3 class="card-title">Form Edit "<%= nominal.coinName %>"
+                              </h3>
+                          </div>
+                          <!-- /.card-header -->
+                          <!-- form start -->
+                          <form action="/nominal/edit/<%= nominal._id %>?_method=put" method="post">
+                              <div class="card-body">
+                                  <div class="form-group">
+                                      <label for="coinName">Name Coin</label>
+                                      <select class="form-control select2" style="width: 100%;" name="coinName"
+                                          required>
+                                          <option selected="selected">Choose Coin</option>
+                                          <option value="Gold" <% if(nominal.coinName === "Gold") {%> selected<% } %>>
+                                              Gold
+                                          </option>
+                                          <option value="Diamond" <% if(nominal.coinName === "Diamond") {%> selected
+                                              <% } %>>
+                                              Diamond
+                                          </option>
+                                          <option value="Jawel" <% if(nominal.coinName === "Jawel") {%> selected
+                                              <% } %>>
+                                              Jawel
+                                          </option>
+                                      </select>
+                                      <div class="form-group">
+                                          <label for="coinQuantity">number of coins</label>
+                                          <input type="number" class="form-control" id="coinQuantity"
+                                              value="<%= nominal.coinQuantity  %>" name="coinQuantity"
+                                              placeholder="insert your coin" required>
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="price">Price</label>
+                                          <input type="number" class="form-control" id="price" name="price"
+                                              value="<%= nominal.price  %>" placeholder="enter price" required>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- /.card-body -->
+
+                              <div class="card-footer">
+                                  <button type="submit" class="btn btn-primary">Simpan</button>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+                  <!-- /.col -->
+              </div>
+              <!-- /.row -->
+          </div>
+          <!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+  </div>
+
+  <%- include ../../partials/footer.ejs %>
+  <%- include ../../partials/js.ejs %>

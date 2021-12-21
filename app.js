@@ -6,7 +6,7 @@ var logger = require('morgan');
 var methodOverride = require('method-override');
 const session = require('express-session');
 const flash = require('connect-flash');
-var cors =  require('cors');
+const cors =  require('cors');
 
 const dasboardRouter = require('./App/dashboard/router');
 const categoryRouter = require('./App/category/router');
@@ -20,8 +20,8 @@ const playerRouter = require('./App/player/router');
 const authRouter = require('./App/auth/router');
 
 var app = express();
-const URL = `/api/v1`
 app.use(cors())
+const URL = `/api/v1`
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

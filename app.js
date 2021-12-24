@@ -75,3 +75,5 @@ module.exports = app;
 
 // Link Postman 
 // https://documenter.getpostman.com/view/15820975/UVR8q8Wu
+//MONGO_URL = mongodb+srv://codeathome:Ghiffari_Al10@cluster0.3cqax.mongodb.net/db_topup-game?retryWrites=true&w=majority
+// MONGO_URL_DEV = mongodb://127.0.0.1:27017/db_topup-game

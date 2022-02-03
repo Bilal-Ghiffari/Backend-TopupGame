@@ -35,7 +35,7 @@ let playerSchema = moongose.Schema({
         default: 'user'
     },
 
-    role: {
+    status: {
         type: String,
         enum: ['Y', 'N'],
         default: 'Y'

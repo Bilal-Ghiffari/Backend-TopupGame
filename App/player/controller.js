@@ -214,8 +214,10 @@ module.exports = {
             .sort({'updateAt': -1})
 
             res.status(200).json({
-                data: history,
-                count: count
+                data: {
+                    history,
+                    count
+                }
             })
         } catch (error) {
             res.status(500).json({

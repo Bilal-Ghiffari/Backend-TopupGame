@@ -38,5 +38,5 @@ module.exports = {
             req.flash('alertStatus', 'danger')
             res.redirect('/transaction')
         }
-    }
+    },
 }

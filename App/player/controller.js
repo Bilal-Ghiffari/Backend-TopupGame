@@ -159,8 +159,10 @@ module.exports = {
 
             const history = await Transaction.find(criteria)
             res.status(200).json({
-                data: history,
-                total: total.length ? total[0].value : 0
+                data: {
+                    data: history,
+                    total: total.length ? total[0].value : 0
+                }
             })
 
         } catch (error) {
@@ -236,6 +238,7 @@ module.exports = {
                 password: req.player.password,
                 phoneNumber: req.player.phoneNumber
             }
+            
             res.status(200).json({
                 data: players
             })
@@ -253,7 +256,7 @@ module.exports = {
 
             if(name.length) payload.name = name;
             if(phoneNumber.length) payload.phoneNumber = phoneNumber;
-
+            console.log("player",req.file)
             if (req.file) {
                 // update untuk input file
                 let tmp_path = req.file.path;

@@ -160,7 +160,7 @@ module.exports = {
             const history = await Transaction.find(criteria)
             res.status(200).json({
                 data: {
-                    data: history,
+                    history: history,
                     total: total.length ? total[0].value : 0
                 }
             })

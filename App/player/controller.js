@@ -157,7 +157,8 @@ module.exports = {
                 }
             ])
 
-            const history = await Transaction.find(criteria)
+            const history = await Transaction.find(criteria).populate('category')
+            console.log("history", history)
             res.status(200).json({
                 data: {
                     history: history,
